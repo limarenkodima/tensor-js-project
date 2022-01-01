@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const FirstPage = (props) => {
   return (
-    <Splash>
+    <Splash onClick={() => window.open("/students")}>
       <LogoFrame>
         <Container>
           <img src="/images/favicon.png" alt=""></img>
@@ -57,18 +57,12 @@ const Container = styled.div`
     font-size: 36px;
     line-height: 47px;
     text-align: center;
-    /* identical to box height */
-
-    /* Primary text */
 
     color: #333333;
   }
 `;
 
 const Splash = styled.div`
-  /* Splash desktop */
-
-  /* Auto Layout */
 
   display: flex;
   flex-direction: column;
@@ -85,9 +79,6 @@ const Splash = styled.div`
 `;
 
 const LogoFrame = styled.div`
-  /* Frame 2 */
-
-  /* Auto Layout */
 
   display: flex;
   flex-direction: column;
@@ -97,8 +88,6 @@ const LogoFrame = styled.div`
   position: relative;
   width: 565px;
   height: 134px;
-
-  /* Inside Auto Layout */
 
   flex: none;
   order: 0;
@@ -125,7 +114,6 @@ const DownBlock = styled.div`
     position: relative;
     width: 294px;
     height: 251px;
-    /* Inside Auto Layout */
 
     flex: none;
     order: 0;
@@ -143,9 +131,6 @@ const DownBlock = styled.div`
     position: static;
     width: 526px;
     height: 89px;
-
-    /* Inside Auto Layout */
-
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -163,11 +148,7 @@ const DownBlock = styled.div`
       line-height: 23px;
       text-align: center;
 
-      /* Primary text */
-
       color: #333333;
-
-      /* Inside Auto Layout */
 
       flex: none;
       order: 0;

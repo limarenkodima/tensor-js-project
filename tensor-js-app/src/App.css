@@ -7,26 +7,6 @@
   pointer-events: none;
 }
 
-.Tensor-school-text {
-position: static;
-width: 270px;
-height: 47px;
-left: 0.5px;
-top: 90px;
-
-font-family: TensorFont, Arial, Helvetica, sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 47px;
-/* identical to box height */
-
-
-/* Primary text */
-
-color: #333333;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
