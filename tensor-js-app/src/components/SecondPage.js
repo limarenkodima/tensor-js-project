@@ -1,9 +1,9 @@
+import UserCard from "./UserCard";
+import styled from "styled-components";
 
 const SecondPage = (props) => {
     return (
-<div>
-    <h1> HELLO WORLD!</h1>
-</div>
+    <UserCard />
     );
 };
 

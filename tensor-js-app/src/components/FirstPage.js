@@ -5,8 +5,7 @@ const FirstPage = (props) => {
     <Splash onClick={() => window.open("/students")}>
       <LogoFrame>
         <Container>
-          <img src="/images/favicon.png" alt=""></img>
-          <a>TENSOR SCHOOL</a>
+          <img src="/images/Desktop logo 272_134.png" alt=""></img>
         </Container>
       </LogoFrame>
       <DownBlock>
@@ -37,15 +36,7 @@ const Container = styled.div`
   flex-grow: 0;
   margin: 16px 0px;
 
-  img {
-    position: static;
-    width: 74px;
-    height: 74px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 16px 0px;
-  }
+  
   a {
     position: static;
     width: 400px;
