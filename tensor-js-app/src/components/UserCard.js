@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import { Student } from "./Student";
 
-const UserCard = (props) => {
+const st = new Student("Мария Иванова", "Ярославль", "ЯрГУ", "+79200001284", "ivanova@mail.ru");
+
+const UserCard = (Student) => {
   return (
     <Card>
       <Avatar />
       <Info>
           <SubFrame>
-            <a>Мария Иванова</a>
+            <a>{Student.name}</a>
             <SubInfo>
               <a>УГАТУ 2 курс</a>
               <a>г.Уфа</a>
@@ -93,6 +96,7 @@ const SubFrame = styled.div`
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
+    text-align: left;
 
     color: #333333;
 
@@ -132,7 +136,7 @@ const SubInfo = styled.div`
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 0px 12px;
+    margin: 0px 12px 0px 0px;
   }
 `;
 
@@ -147,7 +151,7 @@ const Trash = styled.div`
 
   flex: none;
   order: 2;
-  flex-grow: 1;
+  flex-grow: 0;
   margin: 12px 12px;
 
   :hover {

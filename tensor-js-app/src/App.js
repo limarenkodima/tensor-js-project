@@ -1,6 +1,6 @@
 import "./App.css";
 import FirstPage from "./components/FirstPage.js";
-import SecondPage from "./components/SecondPage.js";
+import StudentsPage from "./components/StudentsPage.js";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<FirstPage />}></Route>
-          <Route exact path="/students" element={<SecondPage />}></Route>
+          <Route exact path="/students" element={<StudentsPage />}></Route>
         </Routes>
       </Router>
     </div>
