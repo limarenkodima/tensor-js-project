@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Student } from "./Student";
+import registration from "../actions/user.js";
 
 const st = new Student("Мария Иванова", "Ярославль", "ЯрГУ", "+79200001284", "ivanova@mail.ru");
 
@@ -11,11 +12,11 @@ const UserCard = (Student) => {
           <SubFrame>
             <a>{Student.name}</a>
             <SubInfo>
-              <a>УГАТУ 2 курс</a>
-              <a>г.Уфа</a>
+              <a>{Student.university}</a>
+              <a>{Student.city}</a>
             </SubInfo>
           </SubFrame>
-          <Trash />
+          <Trash onClick={() => registration(Student.name, Student.city, Student.university, Student.telephone, Student.mail)} />
       </Info>
     </Card>
   );
@@ -140,13 +141,14 @@ const SubInfo = styled.div`
   }
 `;
 
-const Trash = styled.div`
+const Trash = styled.button`
  position: static;
   width: 24px;
   height: 24px;
 
   background: url("/images/Trash.svg") no-repeat;
   border-radius: 8px;
+  border-color: white;
   opacity: .2;
 
   flex: none;
