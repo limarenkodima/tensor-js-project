@@ -1,4 +1,4 @@
 {
-    "serverPort": 5000,
-    "dbUrl": "mongodb+srv://Dimasik:123@students.xesel.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "serverPort": 5000,
+  "dbUrl": "mongodb+srv://Dimasik:123@students.xesel.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 }

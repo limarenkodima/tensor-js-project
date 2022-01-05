@@ -1,18 +1,35 @@
 import styled from "styled-components";
+import Delete from "../actions/delete.js"
 
 const UserCard = (props) => {
-  return (
-    <Card>
-      <Avatar ava={props.avatar} />
-      <Info>
+  if (props.name.length > 15)
+    return (
+      <Card>
+        <Avatar ava={props.avatar} />
+        <Info>
           <SubFrame>
-            <a>{props.name}</a>
+            <a>{props.name.substr(0, 12) + "..."}</a>
             <SubInfo>
               <a>{props.university}</a>
               <a>{props.city}</a>
             </SubInfo>
           </SubFrame>
-          <Trash />
+          <Trash onClick={() => Delete(props.uuid)} />
+        </Info>
+      </Card>
+    );
+  return (
+    <Card>
+      <Avatar ava={props.avatar} />
+      <Info>
+        <SubFrame>
+          <a>{props.name}</a>
+          <SubInfo>
+            <a>{props.university}</a>
+            <a>{props.city}</a>
+          </SubInfo>
+        </SubFrame>
+        <Trash onClick={() => Delete(props.uuid)}/>
       </Info>
     </Card>
   );
@@ -34,7 +51,7 @@ const Card = styled.div`
   margin: 0px 0px;
 
   :hover {
-      background: #EEF8FE;
+    background: #eef8fe;
   }
 `;
 
@@ -43,10 +60,9 @@ const Avatar = styled.div`
   width: 80px;
   height: 80px;
 
-  background: center no-repeat url(${( {ava} ) => ava});
+  background: center no-repeat url(${({ ava }) => ava});
   object-fit: cover;
   border-radius: 8px;
-  
 
   flex: none;
   order: 0;
@@ -139,15 +155,15 @@ const SubInfo = styled.div`
   }
 `;
 
-const Trash = styled.button`
- position: static;
+const Trash = styled.div`
+  position: static;
   width: 24px;
   height: 24px;
 
   background: url("/images/Trash.svg") no-repeat;
   border-radius: 8px;
   border-color: white;
-  opacity: .2;
+  opacity: 0.2;
 
   flex: none;
   order: 2;
@@ -155,7 +171,7 @@ const Trash = styled.button`
   margin: 12px 12px;
 
   :hover {
-      opacity: 1;
+    opacity: 1;
   }
 `;
 
