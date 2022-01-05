@@ -1,22 +1,18 @@
 import styled from "styled-components";
-import { Student } from "./Student";
-import registration from "../actions/user.js";
 
-const st = new Student("Мария Иванова", "Ярославль", "ЯрГУ", "+79200001284", "ivanova@mail.ru");
-
-const UserCard = (Student) => {
+const UserCard = (props) => {
   return (
     <Card>
-      <Avatar />
+      <Avatar ava={props.avatar} />
       <Info>
           <SubFrame>
-            <a>{Student.name}</a>
+            <a>{props.name}</a>
             <SubInfo>
-              <a>{Student.university}</a>
-              <a>{Student.city}</a>
+              <a>{props.university}</a>
+              <a>{props.city}</a>
             </SubInfo>
           </SubFrame>
-          <Trash onClick={() => registration(Student.name, Student.city, Student.university, Student.telephone, Student.mail)} />
+          <Trash />
       </Info>
     </Card>
   );
@@ -47,8 +43,10 @@ const Avatar = styled.div`
   width: 80px;
   height: 80px;
 
-  background: url("/images/Frame 4.png") no-repeat;
+  background: center no-repeat url(${( {ava} ) => ava});
+  object-fit: cover;
   border-radius: 8px;
+  
 
   flex: none;
   order: 0;

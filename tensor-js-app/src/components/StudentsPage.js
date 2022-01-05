@@ -1,104 +1,71 @@
 import UserCard from "./UserCard.js";
 import styled from "styled-components";
 import { Student } from "./Student.js";
+import read from "../actions/read.js";
+import React from "react";
 
-const students = [
-  new Student(
-    "Мария Иванова",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Дима Лимаренко",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Антон Войтко",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Паша Абрамов",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Мария Иванова",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Дима Лимаренко",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Антон Войтко",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Антон Войтко",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-  new Student(
-    "Антон Войткоz",
-    "Ярославль",
-    "ЯрГУ",
-    "+79200001284",
-    "ivanova@mail.ru"
-  ),
-];
+class StudentsPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this._isMounted = false;
+    this.students = [];
+    this.state = { students: this.students };
+  }
 
-const listStudents = students.map((student) => (
-  <li key={student.id.toString()}>
-    <UserCard
-      name={student.name}
-      city={student.city}
-      university={student.university}
-      telephone={student.telephone}
-      mail={student.mail}
-    />
-  </li>
-));
+  async componentDidMount() {
+    this._isMounted = true;
+    if( this._isMounted)
+       this.updStudents();
+  }
 
-const StudentsPage = (props) => {
-  return (
-    <Page>
-      <LogoBlock>
-        <img src="/images/horizontal_logo.svg" alt=""></img>
-      </LogoBlock>
-      <StudentsFlex>
-        <ul>
-          <li>
-            <EmptyStudent onClick={() => window.open("/createStudent")}>
-              <a>Добавить студента</a>
-            </EmptyStudent>
-          </li>
-          {listStudents}
-        </ul>
-      </StudentsFlex>
-    </Page>
-  );
-};
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  async updStudents() {
+      this.students = await read();
+        
+      this.setState({
+          students: this.students
+      });
+  }
+
+  outputStudents = () => {
+      return (this.state.students.map((student, index) => (
+        <li key={index}>
+          <UserCard
+            uuid={student.uuid}
+            name={student.name}
+            city={student.city}
+            university={student.university}
+            telephone={student.telephone}
+            mail={student.mail}
+            avatar={student.avatar}
+          />
+        </li>
+      )));
+  }
+
+  render() {
+    return (
+      <Page>
+        <LogoBlock>
+          <img src="/images/horizontal_logo.svg" alt=""></img>
+        </LogoBlock>
+        <StudentsFlex>
+          <ul>
+            <li>
+              <EmptyStudent onClick={() => window.open("/createStudent")}>
+                <a>Добавить студента</a>
+              </EmptyStudent>
+            </li>
+            <this.outputStudents />
+          </ul>
+        </StudentsFlex>
+      </Page>
+    );
+  }
+}
 
 const Page = styled.div`
   width: 800px;
@@ -116,14 +83,14 @@ const Page = styled.div`
   }
 `;
 
-const EmptyStudent = styled.button`
+const EmptyStudent = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 
   position: static;
   width: 392px;
-  height: 220px;
+  height: 105px;
   border-radius: 8px;
 
   flex: none;
@@ -133,9 +100,8 @@ const EmptyStudent = styled.button`
 
   border-width: 2px; /* Толщина линии внизу */
   border-style: dotted; /* Стиль линии внизу */
-  border-color: #7388A8;
+  border-color: #7388a8;
   background: white;
-
 
   :hover {
     background: #eef8fe;
@@ -151,7 +117,7 @@ const EmptyStudent = styled.button`
     line-height: 29px;
     text-align: left;
 
-    color: #7388A8;
+    color: #7388a8;
 
     flex: none;
     order: 0;

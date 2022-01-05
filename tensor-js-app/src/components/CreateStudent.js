@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import registration from "../actions/user.js";
+import create from "../actions/create.js";
+import uuid from "react-uuid/uuid.js";
 
 const CreateStudent = (props) => {
   return (
@@ -56,18 +57,36 @@ const CreateStudent = (props) => {
             id="mail"
             placeholder="limarenkoit22@mail.ru"
           />
-          <button onClick={() => registration(document.getElementById("name").value, 
-          document.getElementById("city").value, 
-          document.getElementById("university").value, 
-          document.getElementById("telephone").value, 
-          document.getElementById("mail").value)}>Отправить</button>
+          <label class="text-field__label" for="login">
+            Ссылка на аватарку
+          </label>
+          <input
+            class="text-field__input"
+            type="text"
+            name="avatar"
+            id="avatar"
+            placeholder="link.jpg"
+          />
+          <button
+            onClick={() =>
+              create(
+                uuid(),
+                document.getElementById("name").value,
+                document.getElementById("city").value,
+                document.getElementById("university").value,
+                document.getElementById("telephone").value,
+                document.getElementById("mail").value,
+                document.getElementById("avatar").value.toString()
+              )
+            }
+          >
+            Отправить
+          </button>
         </div>
       </form>
     </Page>
   );
 };
-
-
 
 const Page = styled.div`
   width: 800px;
