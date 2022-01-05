@@ -13,12 +13,6 @@ router.post("/create", async (req, res) => {
     const mail = req.body.mail;
     const avatar = req.body.avatar;
 
-    const candidate = await Student.findOne({ uuid });
-
-    if (candidate) {
-      return res.status(400).json({ message: "User founded" });
-    }
-
     const student = new Student({
       uuid,
       name,
@@ -29,7 +23,7 @@ router.post("/create", async (req, res) => {
       avatar,
     });
     await student.save();
-    return res.json({ message: "User was created" });
+    return res.json({ message: "Новый студент успешно добавлен" });
   } catch (e) {
     console.log(e);
     res.send({ message: "Server error" });
