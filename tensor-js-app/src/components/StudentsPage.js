@@ -18,7 +18,6 @@ class StudentsPage extends React.Component {
     if (this.state.deleting.length > 1) {
       await this.DeleteStudent(this.state.deleting);
       await this.updStudents();
-      this.forceUpdate();
     }
   }
 
