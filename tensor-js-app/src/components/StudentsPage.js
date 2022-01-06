@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Student } from "./Student.js";
 import read from "../actions/read.js";
 import React from "react";
 import create from "../actions/create.js";
@@ -183,6 +182,7 @@ class StudentsPage extends React.Component {
                 id="avatar"
                 placeholder="link.jpg"
               />
+              <button onClick={() => this.setState({creating: false})}>Назад</button>
               <button onClick={() => this.CreateStudent()}>Отправить</button>
             </div>
           </form>
@@ -326,6 +326,7 @@ const FormPage = styled.div`
     margin-top: 20px;
     background: white;
     border-width: 2px;
+    margin-right: 20px;
   border-style: dotted;
   border-color: #7388a8;
   border-radius: 8px;
