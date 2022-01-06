@@ -224,7 +224,7 @@ const Page = styled.div`
     margin-bottom: 10px;
   }
 
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     width: 100%;
     ul {
       column-count: 1;
@@ -280,7 +280,7 @@ const EmptyStudent = styled.div`
     flex-grow: 0;
   }
 
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     width: 90%;
   }
 `;
@@ -291,7 +291,7 @@ const StudentsFlex = styled.div`
   flex-direction: row;
   align-items: flex-start;
   margin: 0 auto;
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     width: 100%;
   }
 `;
@@ -307,7 +307,7 @@ const LogoBlock = styled.div`
   height: 120px;
 
   background: #ffffff;
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     width: 100%;
     img {
       margin: 0 auto;
@@ -320,24 +320,51 @@ const FormPage = styled.div`
   margin: 0 auto;
   padding: 30px;
 
+  button {
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    background: white;
+    border-width: 2px;
+  border-style: dotted;
+  border-color: #7388a8;
+  border-radius: 8px;
+  font-family: "SF UI Display", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #7388a8;
+
+  :hover {
+    background: #eef8fe;
+  }
+  }
+
   *,
   *::before,
   *::after {
     box-sizing: border-box;
   }
   input[type="text"] {
-    font-family: inherit;
+    font-family: "SF UI Display", Arial, Helvetica, sans-serif;
     font-size: inherit;
     line-height: inherit;
     margin: 0;
+    border-width: 2px;
+  border-style: dotted;
+  border-color: #7388a8;
+  border-radius: 8px;
   }
   .text-field {
     margin-bottom: 1rem;
+    font-family: "SF UI Display", Arial, Helvetica, sans-serif;
   }
 
   .text-field__label {
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-family: "SF UI Display", Arial, Helvetica, sans-serif;
+    color: #7388a8;
+
   }
 
   .text-field__input {
@@ -345,11 +372,11 @@ const FormPage = styled.div`
     width: 100%;
     height: calc(2.25rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-family: inherit;
+    font-family: "SF UI Display", Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: #7388a8;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #bdbdbd;
@@ -357,15 +384,14 @@ const FormPage = styled.div`
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
   .text-field__input::placeholder {
-    color: #212529;
+    color: #7388a8;
     opacity: 0.4;
   }
   .text-field__input:focus {
-    color: #212529;
-    background-color: #fff;
-    border-color: #bdbdbd;
+    color: #7388a8;
+    background-color: #eef8fe;
+    border-color: #eef8fe;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
   }
 `;
 
