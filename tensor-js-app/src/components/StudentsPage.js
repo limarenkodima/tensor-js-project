@@ -223,6 +223,20 @@ const Page = styled.div`
     break-inside: avoid;
     margin-bottom: 10px;
   }
+
+  @media(max-width: 800px) {
+    width: 100%;
+    ul {
+      column-count: 1;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    li {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
 `;
 
 const EmptyStudent = styled.div`
@@ -265,6 +279,10 @@ const EmptyStudent = styled.div`
     order: 0;
     flex-grow: 0;
   }
+
+  @media(max-width: 800px) {
+    width: 90%;
+  }
 `;
 
 const StudentsFlex = styled.div`
@@ -273,6 +291,9 @@ const StudentsFlex = styled.div`
   flex-direction: row;
   align-items: flex-start;
   margin: 0 auto;
+  @media(max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const LogoBlock = styled.div`
@@ -286,6 +307,12 @@ const LogoBlock = styled.div`
   height: 120px;
 
   background: #ffffff;
+  @media(max-width: 800px) {
+    width: 100%;
+    img {
+      margin: 0 auto;
+    }
+  }
 `;
 
 const FormPage = styled.div`
